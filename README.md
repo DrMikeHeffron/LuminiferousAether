@@ -10,4 +10,4 @@ properties of the luminiferous aether using NIST values and then compared the re
 fundamental constants of physics to the values published by NIST with a level of confidence that
 exceeds 6-sigma.
 
-For those who prefer python, aether.py is roughly equivalent software that produces the aether.txt output. 
+For those who prefer python, aether.py is similar software that produces the aether.txt output. 
