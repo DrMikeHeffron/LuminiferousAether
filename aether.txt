@@ -1,0 +1,63 @@
+                  aether density = 1.784488701747213E+16 kg/m³
+                 aether pressure = 1.603818462092648E+33 kg/m/s²
+                  speed of light = 2.997924580000000E+08 m/s
+
+   Earth gravitational parameter = 3.986004418000001E+14 m³/s²
+       Earth kinematic viscosity = 1.329587957146007E+06 m²/s
+                      Earth mass = 6.520659485117608E+09 kg
+                    Earth radius = 4.435028039117672E-03 m
+           Earth surface tension = 7.112979849035478E+30 kg/s²
+
+electron gravitational parameter = 2.068252703189435E+01 m³/s²
+    electron kinematic viscosity = 6.898948415805159E-08 m²/s
+                   electron mass = 9.109383713900000E-31 kg
+                 electron radius = 2.301241486136772E-16 m
+        electron surface tension = 3.690773581199678E+17 kg/s²
+
+   light gravitational parameter = 2.180658889269925E+05 m³/s²
+       light kinematic viscosity = 7.273895093351299E-04 m²/s
+                      light mass = 1.067680725941673E-18 kg
+                    light radius = 2.426310235380004E-12 m
+           light surface tension = 3.891361150266808E+21 kg/s²
+
+    muon gravitational parameter = 1.223014410356156E+02 m³/s²
+        muon kinematic viscosity = 4.079536952047526E-07 m²/s
+                       muon mass = 1.883531627000000E-28 kg
+                     muon radius = 1.360787052237160E-15 m
+            muon surface tension = 2.182455397354590E+18 kg/s²
+
+  proton gravitational parameter = 2.532638456420667E+02 m³/s²
+      proton kinematic viscosity = 8.447972551800043E-07 m²/s
+                     proton mass = 1.672621925950000E-27 kg
+                   proton radius = 2.817940320500005E-15 m
+          proton surface tension = 4.519464711093182E+18 kg/s²
+
+     sun gravitational parameter = 1.327124400179999E+20 m³/s²
+         sun kinematic viscosity = 4.426810497614318E+11 m²/s
+                        sun mass = 2.406650894010162E+26 kg
+                      sun radius = 1.476625038250401E+03 m
+             sun surface tension = 2.368238497934256E+36 kg/s²
+           Newtonian mass of sun = 1.98841E+30 1/kg
+
+Compare aether values to NIST values
+      atomic unit of force : 8.238723504E-08 kg·m/s²     (10 digits match)
+             Bohr magneton : 9.274010065E-24 C·m²/s      (10 digits match)
+               Bohr radius : 5.291772105E-11 m           (10 digits match)
+         electric constant : 8.85418782E-12 C²·s²/kg·m³  (9 digits match)
+         elementary charge : 1.602176634E-19 C           (10 digits match)
+   fine structure constant : 7.2973525644E-03            (11 digits match)
+            Hartree energy : 4.3597447223E-18 kg·m²/s²   (11 digits match)
+NOTE: the following value is the extremely accurate gravitational parameter
+of the sun divided by its very inaccurate alleged Newtonian mass.
+    gravitational constant : 6.67430E-11 kg·m³/s²        (6 digits match)
+        Josephson constant : 4.835978484E+14 C·s/kg·m²   (10 digits match)
+         magnetic constant : 1.256637061E-06 kg·m/C²     (10 digits match)
+     magnetic flux quantum : 2.067833849E-15 kg·m²/C·s   (10 digits match)
+                      h/2q : 2.0678338486E-15 kg·m²/C·s  (11 digits match)
+           Planck constant : 6.62607015E-34 kg·m²/s      (9 digits match)
+NOTE: the following value is equivalent to the kinematic viscosity of light.
+quantum of circulation X 2 : 7.2738950934E-04 m²/s       (11 digits match)
+                      h/mₑ : 7.27389509335E-04 m²/s      (12 digits match)
+          Rydberg constant : 1.0973731568E+07 1/m        (11 digits match)
+     von Klitzing constant : 2.581280746E+04 kg·m²/C²·s  (10 digits match)
+          vacuum impedance : 3.767303135E+02 kg·m²/C²·s  (10 digits match)
