@@ -1,0 +1,42 @@
+// Tests the Light class
+
+use Light.frink
+
+setPrecision[6]
+
+// Create light objects
+m8n12  = Light.new[8, 12, "red"]
+m8n13  = Light.new[8, 13, "yellow"]
+m8n14  = Light.new[8, 14, "lime"]
+m8n15  = Light.new[8, 15, "green"]
+m8n16  = Light.new[8, 16, "cyan"]
+m8n17  = Light.new[8, 17, "teal"]
+m8n18  = Light.new[8, 18, "indigo"]
+m8n19  = Light.new[8, 19, "blue"]
+m8n20  = Light.new[8, 20, "bluer"]
+m8n21  = Light.new[8, 21, "blue 2"]
+m8n22  = Light.new[8, 22, "blue 3"]
+m8n23  = Light.new[8, 23, "blue 4"]
+m8n24  = Light.new[8, 24, "violet"]
+Balmer = Light.new[0,  1, "Balmer"]
+Bohr   = Light.new[Balmer.wavelength[]/8, "Bohr"]
+
+testUnits = [m8n12, m8n13, m8n14, m8n15, m8n16, m8n17, m8n18, m8n19, m8n20, m8n21, m8n22, m8n23, m8n24]
+
+for i = 0 to (length[testUnits]-1)
+{
+   testUnit = testUnits.popFirst[]
+   println["m<n=(" + testUnit.m[] + "," + testUnit.n[] + ") \u03bb=" + testUnit.wavelength[] + " P=" + testUnit.pressure[] + " (" + testUnit.color[] + ")"]
+   testUnits.push[testUnit]
+}
+println["m<n=(0, 1) \u03bb=" + Balmer.wavelength[] + " P=" + Balmer.pressure[] + " (" + Balmer.color[] + ")"]
+println["           \u03bb=" + Bohr.wavelength[] + " P=" + Bohr.pressure[] + " (" + Bohr.color[] + ")"]
+println[""]
+
+for i = 0 to (length[testUnits]-1)
+{
+   testUnit = testUnits.popFirst[]
+   println["m<n=(" + testUnit.m[] + "," + testUnit.n[] + ") \u03bb=" + testUnit.wavelength[] + " E=" + testUnit.energy[] + " (" + testUnit.color[] + ")"]
+}
+println["m<n=(0, 1) \u03bb=" + Balmer.wavelength[] + " E=" + Balmer.energy[] + " (" + Balmer.color[] + ")"]
+println["           \u03bb=" + Bohr.wavelength[] + " E=" + Bohr.energy[] + " (" + Bohr.color[] + ")"]

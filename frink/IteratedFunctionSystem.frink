@@ -1,0 +1,79 @@
+// The following Frink program implements an Iterated Function System
+// fractal image generator, rendered in a different color for each
+// row of the coefficients.
+
+drawIFS[title is string, coeff is array, k_steps = 30, doFile = false] :=
+{
+   // Find the probability for each row of the coefficients array
+   prob = new array
+   sum = 0.0
+   for n = rangeOf[coeff]
+   {
+      sum = sum + coeff@n@6
+      prob.push[sum]
+   }
+
+   // Initialize algorithm parameters
+   iter = 0
+   steps = 1000 * k_steps
+   if k_steps < 10
+      steps = 10000
+   if k_steps > 250
+      steps = 250000
+   x = 1.0
+   y = 1.0
+
+   // Create graph window with light gray background.
+   g = new graphics
+   g.backgroundColor[0.9,0.9,0.9]
+   g.color[0, 0, 0]
+
+   // Use a different color for each row of the affine transform.
+   colors = [g.color[0,0,0],  // Black
+             g.color[1,0,0],  // Red
+             g.color[0,1,0],  // Green
+             g.color[0,0,1],  // Blue
+             g.color[1,0,1],  // Magenta
+             g.color[0,1,1],  // Cyan
+             g.color[1,.7,0]] // Yellowish
+   win = g.show[]
+
+   // Iterate for the specified number of steps.
+   OUTERLOOP:
+   while iter < steps
+   {
+       iter = iter + 1
+       // Update display every 500 iterations.
+       if (iter % 500)==0
+          win.repaint[]
+       // Randomly select which row of coefficients to use.
+       rand = randomFloat[0.0, 1.0]
+       for n = rangeOf[coeff]
+       {
+          if rand <= prob@n
+          {
+             x0 = x
+             y0 = y
+             x = coeff@n@0*x0 + coeff@n@1*y0 + coeff@n@4
+             y = coeff@n@2*x0 + coeff@n@3*y0 + coeff@n@5
+             // Allow 1000 iterations for attractor to take effect.
+             if iter >= 1000
+             {
+                i = n % length[colors]
+                g.color[colors@i]
+                g.drawRectSize[x,-y,.001,.001]
+                next OUTERLOOP
+             }
+          }
+       }
+   }
+   // After last iteration, change window background to white.
+   g.backgroundColor[1,1,1]
+   win.repaint[]
+   if doFile
+   {
+      g.show[]
+      g.write[title+".jpg",1500,undef]
+   }
+   return g
+}

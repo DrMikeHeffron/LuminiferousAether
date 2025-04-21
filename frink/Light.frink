@@ -1,0 +1,43 @@
+// Defines light characteristics
+
+use Aether.frink
+use BlackHole.frink
+
+class Light
+{
+   class var wavelengthBalmer = 3.6450682e-7 m
+   class var electron = BlackHole.new["Electron", 9.10938356e-31 kg]
+   class var light = BlackHole.new["Light", 2.18065888937262e5 m^3 s^-2]
+   var myColor
+   var myM
+   var myN
+   var myWavelength
+
+   class color[] := myColor
+
+   class m[] := myM
+
+   class n[] := myN
+
+   class energy[] := pressure[] * electron.volume[]
+
+   class pressure[] := light.surfaceTension[] / myWavelength
+
+   class wavelength[] := myWavelength
+
+   // Constructor for name, m, & n
+   new[m, n, objColor is string] :=
+   {
+      myColor = objColor
+      myM = m
+      myN = n
+      myWavelength = wavelengthBalmer * n^2 / (n^2 - m^2)
+   }
+
+   // Constructor for name and wavelength
+   new[objWavelength is length, objColor is string] :=
+   {
+      myColor = objColor
+      myWavelength = objWavelength
+   }
+}

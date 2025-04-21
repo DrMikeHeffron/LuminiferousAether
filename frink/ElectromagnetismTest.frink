@@ -1,0 +1,14 @@
+// Tests the Electromagnetism class
+
+use Aether.frink
+use Electromagnetism.frink
+
+testUnit = Electromagnetism.new[]
+
+println["Chi factor is " + testUnit.chiFactor[]]
+println[""]
+println["Raw electric constant is 1/" + 1/testUnit.rawElectricConstant[]]
+println["Raw magnetic constant is " + testUnit.rawMagneticConstant[]]
+println[""]
+println["Electric constant is " + testUnit.electricConstant[]]
+println["Magnetic constant is " + testUnit.magneticConstant[]]

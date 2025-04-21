@@ -1,0 +1,26 @@
+// Defines and provides properties of Aether
+
+// Define units that are currently unknown to Frink
+m^-2 s^-1 kg ||| mass_flux
+
+class Aether
+{
+   // Shape of a particle (sphere assumed)
+   class var shapeFactor = 4 * pi / 3
+
+   // Defined by NIST (CODATA)
+   class var speedOfLight = 2.99792458000e8 m/s
+   class var massOfProton = 1.67262192369e-27 kg
+   // Classical ELECTRON radius = luminiferous radius of PROTON
+   class var radiusOfProton = 2.8179403262e-15 m
+
+   // Density, mass flux, and pressure of the aether
+   class var density = massOfProton / (shapeFactor * radiusOfProton^3)
+   class var massFlux = density * speedOfLight
+   // pressure = massFlux * speedOfLight
+   class var pressure = Aether.density * speedOfLight^2
+
+   // Ratios (speed of light squared, and inverse thereof)
+   class densityOverPressure[] := density / pressure
+   class pressureOverDensity[] := pressure / density
+}

@@ -1,0 +1,50 @@
+// Tests the BlackHole class
+
+use Aether.frink
+use BlackHole.frink
+
+setPrecision[8]
+
+// Create BlackHole objects
+neutrino =  BlackHole.new["Neutrino",  2.14e-37 kg]
+electron =  BlackHole.new["Electron",  9.1093837015e-31 kg]
+protonM =   BlackHole.new["ProtonM",   1.67262192369e-27 kg]
+protonR =   BlackHole.new["ProtonR",   2.8179403227e-15 m]
+neutron =   BlackHole.new["Neutron",   1.67492749804e-27 kg]
+light =     BlackHole.new["Light",     2.18065888937262e5 m^3 s^-2]
+bohr =      BlackHole.new["Bohr",      5.29177e-11 m]
+earth =     BlackHole.new["Earth",     3.986004418e14 m^3 s^-2]
+sgrA =      BlackHole.new["SgrA*",     1.018e15 m^3 s^-2]
+jupiter =   BlackHole.new["Jupiter",   1.268e17 m^3 s^-2]
+sun =       BlackHole.new["Sun",       1.32712440018e20 m^3 s^-2]
+milkyWay =  BlackHole.new["Milky Way", 1.047e22 m^3 s^-2]
+
+// Identify black holes to be displayed
+testUnits = [neutrino, electron, protonM, protonR, neutron, light, bohr, earth, sgrA, jupiter, sun, milkyWay]
+
+for i = 0 to (length[testUnits] - 1)
+{
+   testUnit = testUnits.popFirst[]
+
+   println["\nParameters of " + testUnit.name[] + " black hole are... (" + testUnit.howSet[] + ")"]
+   println["Luminiferous radius is " + testUnit.radius[]]
+   println["Gravitational parameter is " + testUnit.gravitationalParameter[]]
+   println["Surface tension is " + testUnit.surfaceTension[]]
+   println["Mass is " + testUnit.mass[]]
+   if testUnit.name[] != "Light"
+   {
+      println["Energy is " + testUnit.energy[]]
+      println["Frequency is " + testUnit.frequency[]]
+   }
+   println["Acceleration of gravity at luminiferous radius is " + testUnit.gravity[testUnit.radius[]]]
+   if testUnit.name[] == "Earth"
+   {
+      println["Acceleration of gravity at surface is " + testUnit.gravity[6.3781e6 m]]
+   }
+}
+println["\nBohr wavelength = " + Aether.density * light.gravitationalParameter[]^3 / (4 * pi^2 * Aether.pressure * protonR.gravitationalParameter[]^2)]
+println["What are the implications of the following?"]
+println["\nFine structure constant (α) = √(surface tension): proton to bohr = " + (protonR.surfaceTension[] / bohr.surfaceTension[])^0.5]
+println["Fine structure constant (α) = √(luminiferous radius): proton to bohr = " + (protonR.radius[] / bohr.radius[])^0.5]
+println["Fine structure constant (α) = √(gravitational parameter): proton to bohr = " + (protonR.gravitationalParameter[] / bohr.gravitationalParameter[])^0.5]
+println["Fine structure constant (α) = √(frequency): bohr to proton = " + (bohr.frequency[] / protonR.frequency[])^0.5]

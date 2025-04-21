@@ -1,0 +1,89 @@
+// Provides properties of a Black Hole
+use Aether.frink
+
+// Define units that are currently unknown to Frink
+m^3 s^-2 ||| gravitational_parameter
+s^2 kg^-1 A^2 ||| charge_squared_per_mass
+
+class BlackHole
+{
+   class var elementaryCharge = 1.602176634e-19 C
+   var howSet
+   var myName
+   var myRadius = 0
+
+   // Angular velocity
+   class angularVelocity[] := Aether.speedOfLight / myRadius
+ 
+   // Charge squared per black hole mass
+   class chiFactor[] := elementaryCharge^2 / (4 * pi * mass[])
+
+   // E = mc^2 energy of black hole
+   class energy[] := Aether.pressure * Aether.shapeFactor * myRadius^3
+
+   // Frequency (Hz) of black hole
+   class frequency[] := Aether.speedOfLight / (2 * pi * myRadius)
+
+   // Gravitational parameter of black hole (Kepler's Third Law)
+   class gravitationalParameter[] := myRadius * Aether.pressureOverDensity[]
+
+   // Acceleration of gravity at specified radius
+   class gravity[atRadius is length] := gravitationalParameter[] / atRadius^2
+
+   // Identify how radius was set
+   class howSet[] := howSet
+
+   // Mass of black hole
+   class mass[] := Aether.density * Aether.shapeFactor * myRadius^3
+
+   // Name of black hole
+   class name[] := myName
+
+   // Luminiferous radius of black hole (which is not 2GM/c^2)
+   class radius[] := myRadius
+
+   // Surface tension of black hole
+   class surfaceTension[] := Aether.pressure * myRadius
+
+   // Volume of black hole
+   class volume[] := 4 * pi * myRadius^3 / 3
+
+   // Force of vortex that rotates black hole
+   class vortexForce[] := Aether.pressure * pi * myRadius^2
+
+   // Constructor for name and length or mass
+   new[objName is string, objArg] :=
+   {
+      myName = objName
+
+      if objArg conforms length
+      {
+         myRadius = objArg
+         howSet = "radius directly specified"
+      } else
+      {
+         if objArg conforms mass
+         {
+            myRadius = (objArg / (Aether.density * Aether.shapeFactor))^(1/3)
+            howSet = "radius set using mass"
+         } else
+         {
+            if objArg conforms gravitational_parameter
+            {
+               myRadius = objArg / Aether.pressureOverDensity[]
+               howSet = "radius set using gravitational parameter"
+            } else
+            {
+               if objArg conforms frequency
+               {
+                   myRadius = Aether.speedOfLight / (2 * pi * objArg)
+                   howSet = "radius set using frequency"
+               } else
+               {
+                  howSet = "unable to set radius"
+               }
+            }
+         }
+      }
+   }
+}

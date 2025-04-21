@@ -1,0 +1,16 @@
+AetherTest.frink
+
+// Tests the Aether class
+
+use Aether.frink
+
+setPrecision[12]
+
+println["Pressure of aether   = " + Aether.pressure]
+println["Mass flux of aether  = " + Aether.massFlux]
+println["Density of aether    = " + Aether.density]
+println["\nSpeed of light three ways...\n"]
+println["Pressure / mass flux = " + Aether.pressure / Aether.massFlux]
+println["Mass flux / density  = " + Aether.massFlux / Aether.density]
+println["√(Pressure / density)  = " + Aether.pressureOverDensity[]^(1/2)]
+println["Its inverse = " + Aether.densityOverPressure[]^(1/2)]

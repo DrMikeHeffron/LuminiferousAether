@@ -1,0 +1,27 @@
+// Defines electromagnetic units
+
+use Aether.frink
+use BlackHole.frink
+
+class Electromagnetism
+{
+   // Create BlackHole objects
+   class var electron = BlackHole.new["Electron", 9.1093837015e-31 kg]
+   class var proton  =  BlackHole.new["Proton",   1.67262192369e-27 kg]
+
+   // Reciprocal of gravitational parameter of proton
+   class rawElectricConstant[] :=  Aether.density / proton.surfaceTension[]
+
+   // Luminiferous radius of proton
+   class rawMagneticConstant[] :=  proton.surfaceTension[] / Aether.pressure
+
+   class electricConstant[] := rawElectricConstant[] * electron.chiFactor[]
+
+   class magneticConstant[] := rawMagneticConstant[] / electron.chiFactor[]
+
+   class chiFactor[] := electron.chiFactor[]
+
+   new[] :=
+   {
+   }
+}
