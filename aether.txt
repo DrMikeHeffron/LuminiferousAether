@@ -1,5 +1,7 @@
                   aether density = 1.784488701747213E+16 kg/m³
+                aether mass flux = 5.349762541700259E+24 kg/m²/s
                  aether pressure = 1.603818462092648E+33 kg/m/s²
+   aether surface charge density = 1.191658923045323E+11 C/m²
                   speed of light = 2.997924580000000E+08 m/s
 
    Earth gravitational parameter = 3.986004418000001E+14 m³/s²
@@ -55,7 +57,7 @@ of the sun divided by its very inaccurate alleged Newtonian mass.
      magnetic flux quantum : 2.067833849E-15 kg·m²/C·s   (10 digits match)
                       h/2q : 2.0678338486E-15 kg·m²/C·s  (11 digits match)
            Planck constant : 6.62607015E-34 kg·m²/s      (9 digits match)
-NOTE: the following value is equivalent to the kinematic viscosity of light.
+NOTE: the following two values are approximately the kinematic viscosity of light.
 quantum of circulation X 2 : 7.2738950934E-04 m²/s       (11 digits match)
                       h/mₑ : 7.27389509335E-04 m²/s      (12 digits match)
           Rydberg constant : 1.0973731568E+07 1/m        (11 digits match)
