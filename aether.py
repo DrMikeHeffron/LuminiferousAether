@@ -1,4 +1,11 @@
 #===============================================================================
+# aether.py revised 20260726
+#
+# This is a minor extension to define electromagnetic constants using basic
+# aether properties converted into electromagnetic units via the
+# surface charge density of the luminiferous aether. Alternate/old derivations
+# are retained as comments for clarity.
+#===============================================================================
 # Refer to https://pint.readthedocs.io/en/stable/ for comprehensive
 # documentation for the "pint" unit package.
 #
@@ -19,20 +26,28 @@ Q = u.Quantity
 
 # Define basic aether properties.
 c2k = 'convert cgs to kms'
-r_λ = 'Compton wavelength'
+# de Broglie wavelength of luminiferous electron.
+r_λ = 'Compton wavelength of electron'
 ρ   = 'aether density'
 P   = 'aether pressure'
 c   = 'speed of light'
 S   = 'shape of ellipsoid'
+Φ   = 'aether mass flux'
+σ   = 'aether surface charge density'
 
 # Define fundamental luminiferous aether values.
 aether = {}
 aether[c2k] = Q(1.000000000000000e+07, 'C**2/kg/m')
 aether[r_λ] = Q(2.426310235380000e-12, 'm')
+# Mass of proton divided by volume enclosed by classical electron radius.
 aether[ρ]   = Q(1.784488701747213e+16, 'kg/m**3')
 aether[P]   = Q(1.603818462092648e+33, 'kg/m/s**2')
 aether[c]   = (aether[P] / aether[ρ])**0.5
 aether[S]   = 4.0 * math.pi / 3.0
+#aether[Φ]   = aether[ρ] * aether[c]
+#aether[Φ]   = aether[P] / aether[c]
+aether[Φ]   = Q(5.349762541700259e+24, 'kg/m**2/s')
+aether[σ]   = Q(1.191658923045323e+11, 'C/m**2')
 
 class Dab:
     """Just a little dab of matter, whatever that may be!"""
@@ -178,8 +193,11 @@ sunMass  = sun.gravitationalParameter / (0.9999995 * nist[G])
 
 # Calculate fundamental constant values from the aether.
 aether[q]   = (aether[c2k] * electron.mass * proton.radius)**0.5
-aether[ε_0] = aether[q]**2 * aether[ρ] / (4.0 * math.pi * aether[P] * electron.mass * proton.radius)
-aether[μ_0] = 4.0 * math.pi * electron.mass * proton.radius / aether[q]**2
+#aether[ε_0] = aether[q]**2 * aether[ρ] / (4.0 * math.pi * aether[P] * electron.mass * proton.radius)
+#aether[σ]   = (aether[q]**2 * aether[ρ] / (4.0 * math.pi * electron.mass * proton.radius))**0.5
+aether[ε_0] = aether[σ]**2 / aether[P]
+#aether[μ_0] = 4.0 * math.pi * electron.mass * proton.radius / aether[q]**2
+aether[μ_0] = aether[ρ] / aether[σ]**2
 aether[G]   = sun.gravitationalParameter / sunMass
 aether[h]   = light.kinematicViscosity * electron.mass
 aether[R_K] = aether[h] / aether[q]**2
@@ -191,12 +209,15 @@ aether[afu] = electron.mass * proton.gravitationalParameter / aether[a_0]**2
 aether[K_J] = 2.0 * aether[q] / aether[h]
 aether[Φ_0] = aether[h] / (2.0 * aether[q])
 aether[R_8] = proton.radius / (2.0 * aether[a_0] * light.radius)
-aether[Z_0] = 4.0 * math.pi * electron.mass * proton.kinematicViscosity / aether[q]**2
+#aether[Z_0] = 4.0 * math.pi * electron.mass * proton.kinematicViscosity / aether[q]**2
+aether[Z_0] = aether[Φ] / aether[σ]**2
 aether[x2q] = light.kinematicViscosity
 
 # Display fundamental aether values
 indent('', 'aether density', aether[ρ])
+indent('', 'aether mass flux', aether[Φ])
 indent('', 'aether pressure', aether[P])
+indent('', 'aether surface charge density', aether[σ])
 indent('', 'speed of light', aether[c])
 
 # Display important properties of well-known examples of matter.
@@ -223,7 +244,7 @@ compare(K_J)
 compare(μ_0)
 compareDerivation(Φ_0, nist[h] / (2.0 * nist[q]), 'h/2q')
 compare(h)
-print('{}NOTE: the following value is equivalent to the kinematic viscosity of light.'.format(LIGHT_WHITE))
+print('{}NOTE: the following two values are approximately the kinematic viscosity of light.'.format(LIGHT_WHITE))
 compareDerivation(x2q, nist[h] / electron.mass, 'h/mₑ')
 compare(R_8)
 compare(R_K)
