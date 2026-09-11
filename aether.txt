@@ -1,65 +1,74 @@
-                  aether density = 1.784488701747213E+16 kg/m³
-                aether mass flux = 5.349762541700259E+24 kg/m²/s
-                 aether pressure = 1.603818462092648E+33 kg/m/s²
-   aether surface charge density = 1.191658923045323E+11 C/m²
-                  speed of light = 2.997924580000000E+08 m/s
+    light gravitational parameter, ϰ_λ = 2.180658889270218E+05 m³/s²
+     luminiferous radius of light, 𝕣_λ = 2.426310235380329E-12 m
+                        aether density = 1.784488701818276E+16 kg/m³
+                      aether mass flux = 5.349762541913301E+24 kg/m²/s
+                       aether pressure = 1.603818462156516E+33 kg/m/s²
+ aether surface charge density squared = 1.420050989117583E+22 C²/m⁴
+               variable speed of light = 2.997924580000000E+08 m/s
 
-   Earth gravitational parameter = 3.986004418000001E+14 m³/s²
-       Earth kinematic viscosity = 1.329587957146007E+06 m²/s
-                      Earth mass = 6.520659485117608E+09 kg
-                    Earth radius = 4.435028039117672E-03 m
-           Earth surface tension = 7.112979849035478E+30 kg/s²
+         Earth gravitational parameter = 3.986004418000001E+14 m³/s²
+             Earth kinematic viscosity = 1.329587957146007E+06 m²/s
+                            Earth mass = 6.520659485377276E+09 kg
+                          Earth radius = 4.435028039117672E-03 m
+                          Earth volume = 3.654077203589557E-07 m³
+                 Earth surface tension = 7.112979849318736E+30 kg/s²
 
-electron gravitational parameter = 2.068252703189435E+01 m³/s²
-    electron kinematic viscosity = 6.898948415805159E-08 m²/s
-                   electron mass = 9.109383713900000E-31 kg
-                 electron radius = 2.301241486136772E-16 m
-        electron surface tension = 3.690773581199678E+17 kg/s²
+      electron gravitational parameter = 2.068252703161980E+01 m³/s²
+          electron kinematic viscosity = 6.898948415713580E-08 m²/s
+                         electron mass = 9.109383713900000E-31 kg
+                       electron radius = 2.301241486106225E-16 m
+                       electron volume = 5.104758413218416E-47 m³
+              electron surface tension = 3.690773581297662E+17 kg/s²
 
-   light gravitational parameter = 2.180658889269925E+05 m³/s²
-       light kinematic viscosity = 7.273895093351299E-04 m²/s
-                      light mass = 1.067680725941673E-18 kg
-                    light radius = 2.426310235380004E-12 m
-           light surface tension = 3.891361150266808E+21 kg/s²
+         light gravitational parameter = 2.180658889270221E+05 m³/s²
+             light kinematic viscosity = 7.273895093352286E-04 m²/s
+                            light mass = 1.067680725984625E-18 kg
+                          light radius = 2.426310235380333E-12 m
+                          light volume = 5.983118441135177E-35 m³
+                 light surface tension = 3.891361150422301E+21 kg/s²
 
-    muon gravitational parameter = 1.223014410356156E+02 m³/s²
-        muon kinematic viscosity = 4.079536952047526E-07 m²/s
-                       muon mass = 1.883531627000000E-28 kg
-                     muon radius = 1.360787052237160E-15 m
-            muon surface tension = 2.182455397354590E+18 kg/s²
+          muon gravitational parameter = 1.223014410339922E+02 m³/s²
+              muon kinematic viscosity = 4.079536951993374E-07 m²/s
+                             muon mass = 1.883531627000000E-28 kg
+                           muon radius = 1.360787052219097E-15 m
+                           muon volume = 1.055502130711624E-44 m³
+                  muon surface tension = 2.182455397412531E+18 kg/s²
 
-  proton gravitational parameter = 2.532638456420667E+02 m³/s²
-      proton kinematic viscosity = 8.447972551800043E-07 m²/s
-                     proton mass = 1.672621925950000E-27 kg
-                   proton radius = 2.817940320500005E-15 m
-          proton surface tension = 4.519464711093182E+18 kg/s²
+        proton gravitational parameter = 2.532638456387049E+02 m³/s²
+            proton kinematic viscosity = 8.447972551687903E-07 m²/s
+                           proton mass = 1.672621925950000E-27 kg
+                         proton radius = 2.817940320462599E-15 m
+                         proton volume = 9.373115807602021E-44 m³
+                proton surface tension = 4.519464711213167E+18 kg/s²
 
-     sun gravitational parameter = 1.327124400179999E+20 m³/s²
-         sun kinematic viscosity = 4.426810497614318E+11 m²/s
-                        sun mass = 2.406650894010162E+26 kg
-                      sun radius = 1.476625038250401E+03 m
-             sun surface tension = 2.368238497934256E+36 kg/s²
+           sun gravitational parameter = 1.327124400179999E+20 m³/s²
+               sun kinematic viscosity = 4.426810497614318E+11 m²/s
+                              sun mass = 2.406650894106001E+26 kg
+                            sun radius = 1.476625038250401E+03 m
+                            sun volume = 1.348650115662700E+10 m³
+                   sun surface tension = 2.368238498028566E+36 kg/s²
            Newtonian mass of sun = 1.98841E+30 1/kg
 
 Compare aether values to NIST values
-      atomic unit of force : 8.238723504E-08 kg·m/s²     (10 digits match)
-             Bohr magneton : 9.274010065E-24 C·m²/s      (10 digits match)
-               Bohr radius : 5.291772105E-11 m           (10 digits match)
-         electric constant : 8.85418782E-12 C²·s²/kg·m³  (9 digits match)
-         elementary charge : 1.602176634E-19 C           (10 digits match)
-   fine structure constant : 7.2973525644E-03            (11 digits match)
-            Hartree energy : 4.3597447223E-18 kg·m²/s²   (11 digits match)
+      atomic unit of force : 8.23872350385E-08 kg·m/s²   (ALL digits match)
+             Bohr magneton : 9.27401006574E-24 C·m²/s    (ALL digits match)
+               Bohr radius : 5.29177210544E-11 m         (ALL digits match)
+         electric constant : 8.8541878188E-12 C²·s²/kg·m³ (ALL digits match)
+         elementary charge : 1.602176634E-19 C           (ALL digits match)
+   fine structure constant : 7.29735256434E-03           (ALL digits match)
+            Hartree energy : 4.359744722208E-18 kg·m²/s² (ALL digits match)
 NOTE: the following value is the extremely accurate gravitational parameter
 of the sun divided by its very inaccurate alleged Newtonian mass.
     gravitational constant : 6.67430E-11 kg·m³/s²        (6 digits match)
-        Josephson constant : 4.835978484E+14 C·s/kg·m²   (10 digits match)
-         magnetic constant : 1.256637061E-06 kg·m/C²     (10 digits match)
-     magnetic flux quantum : 2.067833849E-15 kg·m²/C·s   (10 digits match)
-                      h/2q : 2.0678338486E-15 kg·m²/C·s  (11 digits match)
-           Planck constant : 6.62607015E-34 kg·m²/s      (9 digits match)
+        Josephson constant : 4.8359784842E+14 C·s/kg·m²  (ALL digits match)
+        Compton wavelength : 2.426310235380E-12 m        (ALL digits match)
+         magnetic constant : 1.256637061270000E-06 kg·m/C² (ALL digits match)
+     magnetic flux quantum : 2.067833848E-15 kg·m²/C·s   (ALL digits match)
+                      h/2q : 2.067833848462E-15 kg·m²/C·s (13 digits match)
+           Planck constant : 6.62607015000004E-34 kg·m²/s (ALL digits match)
 NOTE: the following two values are approximately the kinematic viscosity of light.
-quantum of circulation X 2 : 7.2738950934E-04 m²/s       (11 digits match)
-                      h/mₑ : 7.27389509335E-04 m²/s      (12 digits match)
-          Rydberg constant : 1.0973731568E+07 1/m        (11 digits match)
-     von Klitzing constant : 2.581280746E+04 kg·m²/C²·s  (10 digits match)
-          vacuum impedance : 3.767303135E+02 kg·m²/C²·s  (10 digits match)
+quantum of circulation X 2 : 7.2738950934E-04 m²/s       (ALL digits match)
+                      h/mₑ : 7.27389509335229E-04 m²/s   (ALL digits match)
+          Rydberg constant : 1.097373156816E+07 1/m      (13 digits match)
+     von Klitzing constant : 2.581280746E+04 kg·m²/C²·s  (ALL digits match)
+          vacuum impedance : 3.7673031341203E+02 kg·m²/C²·s (ALL digits match)
