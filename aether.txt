@@ -3,7 +3,7 @@
                         aether density = 1.784488701818276E+16 kg/m³
                       aether mass flux = 5.349762541913301E+24 kg/m²/s
                        aether pressure = 1.603818462156516E+33 kg/m/s²
- aether surface charge density squared = 1.420050989117583E+22 C²/m⁴
+ aether surface charge density squared = 1.420050989117583E+22 A²·s²/m⁴
                variable speed of light = 2.997924580000000E+08 m/s
 
          Earth gravitational parameter = 3.986004418000001E+14 m³/s²
@@ -50,25 +50,25 @@
            Newtonian mass of sun = 1.98841E+30 1/kg
 
 Compare aether values to NIST values
-      atomic unit of force : 8.23872350385E-08 kg·m/s²   (ALL digits match)
-             Bohr magneton : 9.27401006574E-24 C·m²/s    (ALL digits match)
-               Bohr radius : 5.29177210544E-11 m         (ALL digits match)
-         electric constant : 8.8541878188E-12 C²·s²/kg·m³ (ALL digits match)
-         elementary charge : 1.602176634E-19 C           (ALL digits match)
-   fine structure constant : 7.29735256434E-03           (ALL digits match)
-            Hartree energy : 4.359744722208E-18 kg·m²/s² (ALL digits match)
+      atomic unit of force : 8.23872350385E-08 kg·m/s²   (ALL 12 digits match)
+             Bohr magneton : 9.27401006574E-24 A·m²      (ALL 12 digits match)
+               Bohr radius : 5.29177210544E-11 m         (ALL 12 digits match)
+         electric constant : 8.8541878188E-12 A²·s⁴/kg·m³ (ALL 11 digits match)
+         elementary charge : 1.602176634E-19 A·s         (ALL 10 digits match)
+   fine structure constant : 7.29735256434E-03           (ALL 12 digits match)
+            Hartree energy : 4.359744722208E-18 kg·m²/s² (ALL 13 digits match)
 NOTE: the following value is the extremely accurate gravitational parameter
 of the sun divided by its very inaccurate alleged Newtonian mass.
     gravitational constant : 6.67430E-11 kg·m³/s²        (6 digits match)
-        Josephson constant : 4.8359784842E+14 C·s/kg·m²  (ALL digits match)
-        Compton wavelength : 2.426310235380E-12 m        (ALL digits match)
-         magnetic constant : 1.256637061270000E-06 kg·m/C² (ALL digits match)
-     magnetic flux quantum : 2.067833848E-15 kg·m²/C·s   (ALL digits match)
-                      h/2q : 2.067833848462E-15 kg·m²/C·s (13 digits match)
-           Planck constant : 6.62607015000004E-34 kg·m²/s (ALL digits match)
+        Josephson constant : 4.8359784842E+14 A·s²/kg·m² (ALL 11 digits match)
+        Compton wavelength : 2.426310235380E-12 m        (ALL 13 digits match)
+         magnetic constant : 1.256637061270000E-06 kg·m/A²·s² (ALL 16 digits match)
+     magnetic flux quantum : 2.067833848E-15 kg·m²/A·s²  (ALL 10 digits match)
+                      h/2q : 2.067833848462E-15 kg·m²/A·s² (13 digits match)
+           Planck constant : 6.62607015000004E-34 kg·m²/s (ALL 15 digits match)
 NOTE: the following two values are approximately the kinematic viscosity of light.
-quantum of circulation X 2 : 7.2738950934E-04 m²/s       (ALL digits match)
-                      h/mₑ : 7.27389509335229E-04 m²/s   (ALL digits match)
+quantum of circulation X 2 : 7.2738950934E-04 m²/s       (ALL 11 digits match)
+                      h/mₑ : 7.27389509335229E-04 m²/s   (ALL 15 digits match)
           Rydberg constant : 1.097373156816E+07 1/m      (13 digits match)
-     von Klitzing constant : 2.581280746E+04 kg·m²/C²·s  (ALL digits match)
-          vacuum impedance : 3.7673031341203E+02 kg·m²/C²·s (ALL digits match)
+     von Klitzing constant : 2.581280746E+04 kg·m²/A²·s³ (ALL 10 digits match)
+          vacuum impedance : 3.7673031341203E+02 kg·m²/A²·s³ (ALL 14 digits match)
