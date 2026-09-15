@@ -1,6 +1,11 @@
 #===============================================================================
-# aether.py revised 20260911
+# aether.py revised 20260915
 #
+# This version replaced old references to coulomb (C) with equivalent
+# ampere-seconds (As) for better alignment with NIST/CODATA use of
+# MSKA measurement units.
+#
+# 20260911
 # This version relocates NIST/CODATA declared and measured values, and then uses
 # that data to implement my original method of finding the luminiferous radius
 # of the proton from its gravitational parameter ϰₚ, calculated from the Hartree
@@ -52,27 +57,27 @@ Zₒ  = 'vacuum impedance'
 nist = {}
 # CODATA 2022 "exact" values.
 nist[c]   = Q(2.9979245800000e8, 'm/s')
-nist[q]   = Q(1.6021766340000e-19,  'C') 
-nist[h]   = Q(6.6260701500000e-34, 'kg*m**2/s')      # kg*m**2/s
+nist[q]   = Q(1.6021766340000e-19,  'A*s') 
+nist[h]   = Q(6.6260701500000e-34, 'kg*m**2/s')
 
 # CODATA 2022 "measured" values, omitting (uncertainty).
-nist[afu] = Q(8.2387235038e-8, 'kg*m/s**2')          # N = kg*m/s**2
-nist[μ_B] = Q(9.2740100657e-24, 'C*m**2/s')          # J/T = C*m**2/s
+nist[afu] = Q(8.2387235038e-8, 'kg*m/s**2')           # N = kg*m/s**2
+nist[μ_B] = Q(9.2740100657e-24, 'A*m**2')             # J/T = A*m**2
 nist[aₒ]  = Q(5.29177210544e-11, 'm')
-nist[εₒ]  = Q(8.8541878188e-12, 'C**2*s**2/kg/m**3') # F/m = C**2*s**2/kg/m**3
+nist[εₒ]  = Q(8.8541878188e-12, 'A**2*s**4/kg/m**3')  # F/m = A**2*s**4/kg/m**3
 nist[α]   = Q(7.2973525643e-3)
-nist[Eₕ]  = Q(4.3597447222060e-18, 'kg*m**2/s**2')   # J = kg*m**2/s**2
+nist[Eₕ]  = Q(4.3597447222060e-18, 'kg*m**2/s**2')    # J = kg*m**2/s**2
 nist[G]   = Q(6.67430e-11, 'm**3/s**2*kg')
-nist[K_J] = Q(483597.8484e9, 'C*s/kg/m**2')          # Hz/V = C*s/kg/m**2
+nist[K_J] = Q(483597.8484e9, 'A*s**2/kg/m**2')        # Hz/V = A*s**2/kg/m**2
 nist[λ_c] = Q(2.42631023538e-12, 'm')
 nist[mₑ]  = Q(9.1093837139e-31, 'kg')
 nist[mₚ]  = Q(1.67262192595e-27, 'kg')
-nist[μₒ]  = Q(1.25663706127e-6, 'kg*m/C**2')         # N/A*2 = kg*m/C**2
-nist[Φₒ]  = Q(2.067833848e-15, 'Wb')                 # Wb = kg*m**2/C/s
+nist[μₒ]  = Q(1.25663706127e-6, 'kg*m/A**2/s**2')     # N/A*2 = kg*m/A**2/s**2
+nist[Φₒ]  = Q(2.067833848e-15, 'kg*m**2/A/s**2')      # Wb = kg*m**2/A/s**2
 nist[x2q] = Q(7.2738950934e-4, 'm**2/s')
 nist[R_8] = Q(10973731.568157, '1/m')
-nist[R_K] = Q(25812.80745, 'kg·m**2/C**2/s')         # ohm = kg·m**2/C**2·s
-nist[Zₒ]  = Q(376.730313412, 'kg*m**2/C**2/s')       # ohm = kg·m**2/C**2·s
+nist[R_K] = Q(25812.80745, 'kg·m**2/A**2/s**3')       # ohm = kg·m**2/A**2·s**3
+nist[Zₒ]  = Q(376.730313412, 'kg*m**2/A**2/s**3')     # ohm = kg·m**2/A**2·s**3
 
 # Scalar used to determine the volume of an ellipsoid particle/body.
 volume_scalar = 4.0 * math.pi / 3.0
@@ -216,7 +221,7 @@ def compare(name):
             color = LIGHT_YELLOW
         # Assess whether all digits match NIST value.
         if (n > 14) or (nval[n+1] == "0" and nval[n+2] == "0"):
-            n = "ALL"
+            n = "ALL " + str(n)
         print(match.format(color, name, val, n))
     # Problem with mismatched units of measure.
     else:
