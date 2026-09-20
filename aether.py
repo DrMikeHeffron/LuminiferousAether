@@ -1,6 +1,14 @@
 #===============================================================================
-# aether.py revised 20260915
+# aether.py revised 20260920
 #
+# This version repairs small issues with the matchTo function. It leaves one
+# minor issue unresolved with the pint unit registry Quantity method, which
+# doesn't treat final zeroes as significant.
+#
+# 20260918
+# This version adds voltage, current intensity, and resistance to the Dab class.
+#
+# 20260915
 # This version replaced old references to coulomb (C) with equivalent
 # ampere-seconds (As) for better alignment with NIST/CODATA use of
 # MSKA measurement units.
@@ -56,9 +64,9 @@ Zₒ  = 'vacuum impedance'
 
 nist = {}
 # CODATA 2022 "exact" values.
-nist[c]   = Q(2.9979245800000e8, 'm/s')
-nist[q]   = Q(1.6021766340000e-19,  'A*s') 
-nist[h]   = Q(6.6260701500000e-34, 'kg*m**2/s')
+nist[c]   = Q(2.99792458e8, 'm/s')
+nist[q]   = Q(1.602176634e-19,  'A*s') 
+nist[h]   = Q(6.62607015e-34, 'kg*m**2/s')
 
 # CODATA 2022 "measured" values, omitting (uncertainty).
 nist[afu] = Q(8.2387235038e-8, 'kg*m/s**2')           # N = kg*m/s**2
@@ -186,17 +194,33 @@ indent('', 'light gravitational parameter, ϰ_λ', ϰ_λ)
 indent('', 'luminiferous radius of light, 𝕣_λ', 𝕣_λ) 
 
 digits = ['.','0','1','2','3','4','5','6','7','8','9']
-def matchTo(str1, str2, rat):
+def matchTo(str1, str2, ndig):
     """Find the first index where two strings differ."""
     for i in range(min(len(str1), len(str2))):
+        # No match.
         if (str1[i] != str2[i]) or (str1[i] not in digits) or (str2[i] not in digits):
-            # Count first non-match if it rounds up or down.
-            if (rat[i] == '0') or (rat[i] == '9'):
-                return i
-            else: # Deduct for decimal point.
-                return i - 1
-    # Match to shorter length if no difference.
-    return min(len(str1), len(str2)) - 1
+          # Out of digits.
+          if (str1[i] not in digits) or (str2[i] not in digits):
+            return min(ndig, i-1)
+          # Mismatched digits, check for rounding error. 
+          else:
+            # Find difference between NIST and aether value.
+            delta = int(str2[i]) - int(str1[i])
+            # Determine whether it might be a rounding error.
+            if abs(delta) > 1:
+              # Not a rounding error.
+              return min(ndig, i-1)
+            else:
+              # It might be a rounding error.
+              if (int(str1[i+1]) >= 5) and (delta == 1):
+                # It was a round up error.
+                return min(ndig, i)
+              elif (int(str1[i+1]) < 5) and (delta == -1):
+                # It was a round down error.
+                return min(ndig, i)
+              return min(ndig, i-1)
+    # Match to shorter length (minus decimal point) if no difference.
+    return 0 #min(len(str1), len(str2)) - 1
     
 def compare(name):
     """Compare an aether value to a NIST value."""
@@ -204,8 +228,9 @@ def compare(name):
     if ratio.dimensionless:
         aval = '{:.15E~P}'.format(aether[name])
         nval = '{:.15E~P}'.format(nist[name])
-        rat  = '{:.15E~P}'.format(ratio)
-        n = matchTo(aval, nval, rat)
+        # Find number of digits in NIST value.
+        ndig = str(nist[name]).lower().find('e') - 1
+        n = matchTo(aval, nval, ndig)
         # Deduct for leading digit.
         value = '{:.' + str(n-1) + 'E~P}'
         val = value.format(aether[name])
@@ -214,14 +239,14 @@ def compare(name):
         val = val.replace('/','·')
         val = val.replace('!','/')
         # Format output for display.
-        match = '{}{:>26} : {:<27} ({} digits match)'
+        match = '{}{:>26} : {:<32} ({} digits match)'
         if 0.999999999 <= ratio <= 1.0000000005:
             color = LIGHT_GREEN
         else:
             color = LIGHT_YELLOW
         # Assess whether all digits match NIST value.
-        if (n > 14) or (nval[n+1] == "0" and nval[n+2] == "0"):
-            n = "ALL " + str(n)
+        if (n >= ndig):
+          n  = "ALL " + str(ndig)
         print(match.format(color, name, val, n))
     # Problem with mismatched units of measure.
     else:
@@ -266,6 +291,7 @@ aether[x2q] = light.kinematicViscosity
 indent('', 'aether density', aether[ρ])
 indent('', 'aether mass flux', aether[Φ])
 indent('', 'aether pressure', aether[P])
+indent('', 'aether surface charge density', aether[σ2]**0.5)
 indent('', 'aether surface charge density squared', aether[σ2])
 indent('', 'variable speed of light', aether[ȼ])
 
@@ -276,7 +302,7 @@ showDab(light)
 showDab(muon)
 showDab(proton)
 showDab(sun)
-print('           Newtonian mass of sun = {:.5E~P}'.format(sunMass))
+print('                 Newtonian mass of sun = {:.5E~P}'.format(sunMass))
 
 print('{}\nCompare aether values to NIST values'.format(LIGHT_GREEN))
 compare(afu)
